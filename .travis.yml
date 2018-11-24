@@ -4,13 +4,8 @@ install: true
 jdk:
   - openjdk8
 
-env:
-  matrix:
-    - OSS=true
-    - OSS=false
-
 script:
-  - /usr/bin/env bash ./gradlew buildOtaOSS
+  - /usr/bin/env bash ./gradlew build
 
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
