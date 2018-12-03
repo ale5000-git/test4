@@ -5,6 +5,7 @@ jdk:
   - openjdk8
 
 script:
+  - echo $CI
   - ./gradlew build -s
 
 before_cache:
