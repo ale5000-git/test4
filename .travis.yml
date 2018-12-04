@@ -5,7 +5,7 @@ jdk:
   - openjdk8
 
 script:
-  global: echo 111
+  global: ls
 
 matrix:
   include:
@@ -16,7 +16,7 @@ matrix:
   fast_finish: true
 
 script:
-  global: echo 222
+  global: ls gradle/wrapper/*
 
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
