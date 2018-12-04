@@ -6,32 +6,6 @@ jacoco {
     toolVersion = "0.8.2"
 }
 
-task codeCoverageReport(type: JacocoReport) {
-    executionData fileTree(project.rootDir.absolutePath).include("**/build/jacoco/*.exec")
-
-    subprojects.each {
-        sourceSets it.sourceSets.main
-    }
-
-    reports {
-        xml.enabled true
-        xml.destination "${buildDir}/reports/jacoco/report.xml"
-        html.enabled false
-        csv.enabled false
-    }
-}
-
-	allprojects {
-		repositories {
-			maven { url 'https://jitpack.io' }
-		}
-	}
-  
-	dependencies {
-	        //implementation 'com.github.micro5k:microg-unofficial-installer:-SNAPSHOT'
-	}
-
-
 task build(group: '- Build', description: 'Build.') {
     doLast {
         println 'Building...'
@@ -39,6 +13,17 @@ task build(group: '- Build', description: 'Build.') {
             executable = ls
         }
     }
+}
+
+jacocoTestReport{
+    //additionalSourceDirs = files(sourceSets.main.allJava.srcDirs)
+    executionData fileTree(project.rootDir.absolutePath).include("**/build/jacoco/*.exec")
+    reports {
+        xml.enabled true
+        csv.enabled false
+        html.enabled false
+    }
+    executionData = files('build/jacoco/*.exec')
 }
 
 task test(dependsOn: ':build') {
