@@ -30,3 +30,17 @@ task codeCoverageReport(type: JacocoReport) {
 	dependencies {
 	        //implementation 'com.github.micro5k:microg-unofficial-installer:-SNAPSHOT'
 	}
+
+
+task build(group: '- Build', description: 'Build.') {
+    doLast {
+        println 'Building...'
+        exec {
+            executable = ls
+        }
+    }
+}
+
+task test(dependsOn: ':build') {
+    finalizedBy codeCoverageReport
+}
