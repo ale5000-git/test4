@@ -4,19 +4,13 @@ install: true
 jdk:
   - openjdk8
 
-script:
-  global: ls
-
 matrix:
   include:
     - env: TEST=1
       script: ./gradlew tasks -s
     - env: TEST=2
-      script: ./gradlew wrapper -s
+      script: ./gradlew jacocoTestReport -s
   fast_finish: true
-
-script:
-  global: ls gradle/wrapper/*
 
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
