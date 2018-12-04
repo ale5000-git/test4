@@ -1,9 +1,6 @@
 plugins {
-    id 'jacoco'
-}
-
-jacoco {
-    toolVersion = "0.8.2"
+    id 'java'
+    id 'jacoco' version '0.8.2'
 }
 
 task build(group: '- Build', description: 'Build.') {
