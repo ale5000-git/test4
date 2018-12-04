@@ -3,7 +3,7 @@ plugins {
     id 'jacoco'
 }
 
-task build(group: '- Build', description: 'Build.') {
+task build_me(group: '- Build', description: 'Build.') {
     doLast {
         println 'Building...'
         exec {
@@ -23,6 +23,6 @@ jacocoTestReport{
     executionData = files('build/jacoco/*.exec')
 }
 
-task test(dependsOn: ':build') {
+task test(dependsOn: ':build_me') {
     finalizedBy codeCoverageReport
 }
