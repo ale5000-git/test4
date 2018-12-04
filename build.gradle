@@ -23,6 +23,14 @@ jacocoTestReport{
     executionData = files('build/jacoco/*.exec')
 }
 
-task test(dependsOn: ':build_me') {
+task test_me(dependsOn: ':build_me') {
     finalizedBy codeCoverageReport
+}
+
+tasks.withType(Test) { 
+  testLogging {
+    exceptionFormat "full"
+    events "started", "skipped", "passed", "failed"
+    showStandardStreams true
+  }
 }
