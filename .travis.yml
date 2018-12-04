@@ -4,8 +4,8 @@ install: true
 jdk:
   - openjdk8
 
-global:
-  script: echo 1
+script:
+  global: echo 111
 
 matrix:
   include:
@@ -15,8 +15,8 @@ matrix:
       script: ./gradlew wrapper -s
   fast_finish: true
 
-global:
-  script: echo 2
+script:
+  global: echo 222
 
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
