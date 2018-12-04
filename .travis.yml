@@ -4,16 +4,19 @@ install: true
 jdk:
   - openjdk8
 
+global:
+  script: echo 1
+
 matrix:
   include:
     - env: TEST=1
-      script: ./gradlew buildOtaOSS -s
+      script: ./gradlew tasks -s
     - env: TEST=2
-      script: ./gradlew wrapper
+      script: ./gradlew wrapper -s
   fast_finish: true
 
-script:
-  - echo $CI
+global:
+  script: echo 2
 
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
