@@ -5,5 +5,5 @@
 	}
   
 	dependencies {
-	        implementation 'com.github.micro5k:microg-unofficial-installer:-SNAPSHOT'
+	        //implementation 'com.github.micro5k:microg-unofficial-installer:-SNAPSHOT'
 	}
