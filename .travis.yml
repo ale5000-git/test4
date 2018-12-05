@@ -7,17 +7,8 @@ jdk:
 matrix:
   include:
     - env: TEST=1
-      script: ./gradlew tasks -all -s --warning-mode all
+      script: ./gradlew tasks -s -all
     - env: TEST=2
       script: ./gradlew cleanAll -s --warning-mode all
       #script: gradle run test_me jacoco
   fast_finish: true
-
-before_cache:
-  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
-  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
-cache:
-  directories:
-    - $HOME/.gradle/caches/
-    - $HOME/.gradle/wrapper/
-    - $HOME/.android/build-cache
