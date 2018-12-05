@@ -27,7 +27,7 @@ jacocoTestReport{
 */
 
 task test_me(dependsOn: ':build_me') {
-    finalizedBy codeCoverageReport
+    //finalizedBy codeCoverageReport
 }
 
 tasks.withType(Test) { 
