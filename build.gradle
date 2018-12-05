@@ -1,5 +1,6 @@
 plugins {
     id 'base'
+    id 'nebula.lint' version '9.3.2'
     //id 'java'
     //id 'jacoco'
 }
