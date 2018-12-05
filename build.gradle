@@ -4,6 +4,9 @@ plugins {
     //id 'jacoco'
 }
 
+org.gradle.parallel = true
+org.gradle.warning.mode = all
+
 task build_me(group: '- Build', description: 'Build.') {
     doLast {
         println 'Building...'
