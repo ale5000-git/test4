@@ -34,6 +34,7 @@ task test_me(dependsOn: ':build_me') {
 }
 
 task cleanAll(dependsOn: ':clean', type: Delete) {
+    delete buildDir, "${projectDir}/cache"
 }
 
 tasks.withType(Test) { 
