@@ -7,7 +7,7 @@ jdk:
 matrix:
   include:
     - env: TEST=1
-      script: ./gradlew tasks -all
+      script: gradle tasks -all
     - env: TEST=2
       script: ./gradlew cleanAll -s --warning-mode all
       #script: gradle run test_me jacoco
