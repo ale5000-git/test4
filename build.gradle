@@ -33,7 +33,7 @@ task test_me(dependsOn: ':build_me') {
     //finalizedBy codeCoverageReport
 }
 
-task cleanAll(dependsOn: ':clean') {
+task cleanAll(dependsOn: ':clean', type: Delete) {
 }
 
 tasks.withType(Test) { 
