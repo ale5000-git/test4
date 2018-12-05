@@ -25,7 +25,7 @@ task build_me(group: '- Build', description: 'Build.') {
     }
 }
 
-build.finalizedBy build_me
+build.finalizedBy(build_me)
 
 task install(dependsOn: ':build') {
 }
