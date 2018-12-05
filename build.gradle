@@ -15,7 +15,7 @@ task build_me(group: '- Build', description: 'Build.') {
     }
 }
 
-task install() {
+task install(dependsOn: ':build') {
 }
 
 /*
