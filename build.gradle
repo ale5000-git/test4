@@ -5,6 +5,8 @@ plugins {
     //id 'jacoco'
 }
 
+gradleLint.rules = ['all-dependency']
+
 //org.gradle.parallel = true
 //org.gradle.warning.mode = all
 
