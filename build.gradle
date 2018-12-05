@@ -7,6 +7,12 @@ plugins {
 
 gradleLint.rules = ['all-dependency']
 
+lintOptions {
+    checkAllWarnings true
+    warningsAsErrors true
+    abortOnError true
+}
+
 //org.gradle.parallel = true
 //org.gradle.warning.mode = all
 
