@@ -9,6 +9,7 @@ matrix:
     - env: TEST=1
       script: ./gradlew tasks -s --warning-mode all
     - env: TEST=2
+      script: ./gradlew clean -s --warning-mode all
       #script: gradle run test_me jacoco
   fast_finish: true
 
