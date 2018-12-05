@@ -13,6 +13,9 @@ task build_me(group: '- Build', description: 'Build.') {
     }
 }
 
+task install() {
+}
+
 /*
 jacocoTestReport{
     //additionalSourceDirs = files(sourceSets.main.allJava.srcDirs)
