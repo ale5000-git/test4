@@ -1,10 +1,10 @@
-gradle.startParameter.showStacktrace = org.gradle.api.logging.configuration.ShowStacktrace.ALWAYS_FULL
-
 plugins {
     id 'maven'
     //id 'java'
     //id 'jacoco'
 }
+
+gradle.startParameter.showStacktrace = org.gradle.api.logging.configuration.ShowStacktrace.ALWAYS_FULL
 
 task build_me(group: '- Build', description: 'Build.') {
     doLast {
