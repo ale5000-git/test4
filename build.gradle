@@ -16,7 +16,7 @@ task build_me(group: '- Build', description: 'Build.') {
 /*
 jacocoTestReport{
     //additionalSourceDirs = files(sourceSets.main.allJava.srcDirs)
-    executionData fileTree(project.rootDir.absolutePath).include("**/build/jacoco/*.exec")
+    executionData fileTree(project.rootDir.absolutePath).include("** /build/jacoco/*.exec")
     reports {
         xml.enabled true
         csv.enabled false
