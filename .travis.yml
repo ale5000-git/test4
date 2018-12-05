@@ -9,7 +9,7 @@ matrix:
     - env: TEST=1
       script: ./gradlew tasks -s --warning-mode all
     - env: TEST=2
-      script: gradle run test_me jacoco
+      #script: gradle run test_me jacoco
   fast_finish: true
 
 before_cache:
