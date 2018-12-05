@@ -1,6 +1,7 @@
 plugins {
-    id 'java'
-    id 'jacoco'
+    id 'maven'
+    //id 'java'
+    //id 'jacoco'
 }
 
 task build_me(group: '- Build', description: 'Build.') {
@@ -12,6 +13,7 @@ task build_me(group: '- Build', description: 'Build.') {
     }
 }
 
+/*
 jacocoTestReport{
     //additionalSourceDirs = files(sourceSets.main.allJava.srcDirs)
     executionData fileTree(project.rootDir.absolutePath).include("**/build/jacoco/*.exec")
@@ -22,6 +24,7 @@ jacocoTestReport{
     }
     executionData = files('build/jacoco/*.exec')
 }
+*/
 
 task test_me(dependsOn: ':build_me') {
     finalizedBy codeCoverageReport
