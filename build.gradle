@@ -1,31 +1,49 @@
 plugins {
+    id 'com.gradle.build-scan' version '1.16'
     id 'base'
     id 'nebula.lint' version '10.3.2'
-    //id 'java'
     //id 'jacoco'
 }
 
-gradleLint.rules = ['all-dependency']
-
-lintOptions {
+/*lintOptions {
     checkAllWarnings true
     warningsAsErrors true
     abortOnError true
+}*/
+
+def isWindows() {
+    return System.properties['os.name'].toLowerCase(Locale.ROOT).contains('windows')
 }
 
-//org.gradle.parallel = true
-//org.gradle.warning.mode = all
+def is64BitArch() {
+    return System.properties['os.arch'].contains('64')
+}
 
-task build_me(group: '- Build', description: 'Build.') {
+def getBuildScriptName() {
+    return 'ls'
+}
+
+task configure() {
+    buildDir = "${projectDir}/output"
+    println 'OS: '+System.properties['os.name']
+    println '64 bit: '+is64BitArch()
+}
+
+task cleanAll(type: Delete) {
+    delete buildDir, "${projectDir}/cache"
+}
+clean.finalizedBy cleanAll
+
+task buildOta(group: '- OTA build', description: 'Build the flashable OTA zip.') {
     doLast {
-        println 'Building...'
+        println 'Building the flashable OTA zip with Gradle...'
         exec {
-            executable = ls
+            executable = getBuildScriptName()
+            args 'Gradle'
         }
     }
 }
-
-build.finalizedBy(build_me)
+build.finalizedBy buildOta
 
 task install(dependsOn: ':build') {
 }
@@ -43,12 +61,8 @@ jacocoTestReport{
 }
 */
 
-task test_me(dependsOn: ':build_me') {
+task test_me(dependsOn: ':build') {
     //finalizedBy codeCoverageReport
-}
-
-task cleanAll(dependsOn: ':clean', type: Delete) {
-    delete buildDir, "${projectDir}/cache"
 }
 
 tasks.withType(Test) { 
@@ -57,4 +71,10 @@ tasks.withType(Test) {
     events "started", "skipped", "passed", "failed"
     showStandardStreams true
   }
+}
+
+wrapper {
+    gradleVersion = '4.10.2'
+    distributionType = Wrapper.DistributionType.ALL
+    distributionSha256Sum = 'b7aedd369a26b177147bcb715f8b1fc4fe32b0a6ade0d7fd8ee5ed0c6f731f2c'
 }
