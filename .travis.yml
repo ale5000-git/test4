@@ -10,6 +10,6 @@ matrix:
       #script: ./gradlew build
       script: ./gradlew lint
     - env: TEST=2
-      script: ./gradlew cleanAll -s --warning-mode all
+      script: ./gradlew cleanAll --warning-mode all
       #script: gradle run test_me jacoco
   fast_finish: true
