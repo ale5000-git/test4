@@ -34,13 +34,9 @@ task cleanAll(type: Delete) {
 }
 clean.finalizedBy cleanAll
 
-task buildOta(group: '- OTA build', description: 'Build the flashable OTA zip.') {
+task buildOta() {
     doLast {
         println 'Building the flashable OTA zip with Gradle...'
-        exec {
-            executable = getBuildScriptName()
-            args 'Gradle'
-        }
     }
 }
 build.finalizedBy buildOta
