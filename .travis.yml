@@ -12,4 +12,8 @@ matrix:
     - env: TEST=2
       script: ./gradlew cleanAll --warning-mode all
       #script: gradle run test_me jacoco
+    - env: TEST=3
+      script: ./gradlew fail
+  allow_failures:
+    - env: TEST=3
   fast_finish: true
