@@ -31,12 +31,25 @@ task configure() {
 
 task cleanAll(type: Delete) {
     delete buildDir, "${projectDir}/cache"
+    shouldRunAfter clean
 }
-clean.finalizedBy cleanAll
+
+task integrationTest(type: Test) {
+    description = 'Runs integration tests.'
+    group = 'verification'
+
+        exec {
+            executable 'zip'
+        }
+    shouldRunAfter test
+}
 
 task buildOta() {
     doLast {
         println 'Building the flashable OTA zip with Gradle...'
+        exec {
+            executable 'ls'
+        }
     }
 }
 build.finalizedBy buildOta
