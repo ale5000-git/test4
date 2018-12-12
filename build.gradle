@@ -44,6 +44,7 @@ task OtaTest(type: Test/*, shouldRunAfter: test*/) {
             executable 'zip'
         }
     }
+    outputs.upToDateWhen { false }
 }
 //check.dependsOn integrationTest
 
@@ -66,7 +67,7 @@ task buildOtaOss() {
     }
 }
 
-task install(dependsOn: ':build') {
+task install(dependsOn: build) {
 }
 
 /*
@@ -82,9 +83,11 @@ jacocoTestReport{
 }
 */
 
+/*
 task test_me(dependsOn: ':build') {
     //finalizedBy codeCoverageReport
 }
+*/
 
 tasks.withType(Test) { 
   testLogging {
