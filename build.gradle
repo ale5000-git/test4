@@ -38,9 +38,12 @@ task integrationTest(type: Test) {
     description = 'Runs integration tests.'
     group = 'verification'
 
+    doLast {
+        println 'Test...'
         exec {
             executable 'zip'
         }
+    }
     shouldRunAfter test
 }
 
