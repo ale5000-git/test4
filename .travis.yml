@@ -13,8 +13,10 @@ matrix:
       script: ./gradlew cleanAll --warning-mode all
       #script: gradle run test_me jacoco
     - env: TEST=3
-      script: ./gradlew fail
+      script: ./gradlew test
       language: generic
   allow_failures:
     - language: generic
   fast_finish: true
+
+# https://docs.gradle.org/current/dsl/org.gradle.api.tasks.testing.Test.html
