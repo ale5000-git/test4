@@ -35,8 +35,9 @@ task cleanAll(type: Delete) {
 }
 
 task OtaTest(type: Test/*, shouldRunAfter: test*/) {
+    outputs.doNotCacheIf('Never cached') { true }
     description = 'Runs Ota tests.'
-    //group = 'verification'
+    group = 'verification'
 
     doLast {
         println 'Test...'
@@ -44,7 +45,6 @@ task OtaTest(type: Test/*, shouldRunAfter: test*/) {
             executable 'zip'
         }
     }
-    outputs.doNotCacheIf('Never cached') { true }
 }
 //check.dependsOn integrationTest
 
