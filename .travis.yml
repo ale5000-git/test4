@@ -10,11 +10,10 @@ matrix:
       #script: ./gradlew build
       script: ./gradlew lint
     - env: TEST=2
-      script: ./gradlew cleanAll --warning-mode all
+      script: ./gradlew clean
       #script: gradle run test_me jacoco
     - env: TEST=3
       script: ./gradlew test
-      #language: generic
   allow_failures:
     - language: generic
   fast_finish: true
