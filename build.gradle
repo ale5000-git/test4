@@ -34,7 +34,7 @@ task cleanAll(type: Delete) {
     shouldRunAfter clean
 }
 
-task OtaTest(type: Test/*, shouldRunAfter: test*/) {
+task OtaTest(type: Test) {
     outputs.doNotCacheIf('Never cached') { true }
     description = 'Runs Ota tests.'
     group = 'verification'
