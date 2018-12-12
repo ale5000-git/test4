@@ -75,7 +75,8 @@ task install(dependsOn: build) {
   // Dummy
 }
 
-task test(dependsOn: OtaTest, OtaTest2) {
+task test() {
+  dependsOn OtaTest, OtaTest2
 }
 
 /*
