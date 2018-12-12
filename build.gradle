@@ -48,6 +48,10 @@ task OtaTest(type: Test/*, shouldRunAfter: test*/) {
 }
 //check.dependsOn integrationTest
 
+task OtaTest2() {
+  // Dummy
+}
+
 task buildOta() {
     doLast {
         println 'Building the flashable OTA zip with Gradle...'
@@ -68,6 +72,10 @@ task buildOtaOss() {
 }
 
 task install(dependsOn: build) {
+  // Dummy
+}
+
+task test(dependsOn: OtaTest, OtaTest2) {
 }
 
 /*
