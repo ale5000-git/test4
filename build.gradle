@@ -29,22 +29,17 @@ task configure() {
     println '64 bit: '+is64BitArch()
 }
 
-task cleanAll(type: Delete) {
+task cleanAll(type: Delete, shouldRunAfter: clean) {
     delete buildDir, "${projectDir}/cache"
-    shouldRunAfter clean
+    //shouldRunAfter clean
 }
 
-task integrationTest(type: Test) {
+task integrationTest(type: Exec, shouldRunAfter: test) {
     description = 'Runs integration tests.'
     group = 'verification'
 
-    doLast {
         println 'Test...'
-        exec {
             executable 'zip'
-        }
-    }
-    shouldRunAfter test
 }
 
 task buildOta() {
