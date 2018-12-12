@@ -34,7 +34,7 @@ task configure() {
     //shouldRunAfter clean
 }*/
 
-task integrationTest(type: Exec, shouldRunAfter: test) {
+task integrationTest(type: Exec/*, shouldRunAfter: test*/) {
     description = 'Runs integration tests.'
     group = 'verification'
 
