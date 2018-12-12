@@ -44,9 +44,12 @@ task OtaTest(type: Test/*, shouldRunAfter: test*/) {
             executable 'zip'
         }
     }
-    outputs.doNotCacheIf('Never cached', true)
+    outputs.doNotCacheIf('Never cached') { true }
 }
 //check.dependsOn integrationTest
+
+// https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/TaskOutputs.html
+// outputs.upToDateWhen { false }
 
 task OtaTest2() {
   // Dummy
