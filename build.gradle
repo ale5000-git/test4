@@ -29,9 +29,9 @@ task configure() {
     println '64 bit: '+is64BitArch()
 }
 
-task cleanAll(type: Delete, shouldRunAfter: clean) {
+task cleanAll(type: Delete) {
     delete buildDir, "${projectDir}/cache"
-    //shouldRunAfter clean
+    shouldRunAfter clean
 }
 
 task integrationTest(type: Test/*, shouldRunAfter: test*/) {
