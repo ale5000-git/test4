@@ -1,3 +1,1 @@
-//org.gradle.parallel = true
-//org.gradle.warning.mode = all
 gradle.startParameter.showStacktrace = org.gradle.api.logging.configuration.ShowStacktrace.ALWAYS
