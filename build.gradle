@@ -58,12 +58,12 @@ task OtaTest2() {
 task buildOta() {
     doLast {
         println 'Building the flashable OTA zip with Gradle...'
-        exec {
+        /*exec {
             executable 'ls'
-        }
+        }*/
     }
 }
-//build.finalizedBy buildOta
+build.finalizedBy buildOta
 
 task buildOtaOss() {
     doLast {
