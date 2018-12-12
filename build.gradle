@@ -44,7 +44,7 @@ task OtaTest(type: Test/*, shouldRunAfter: test*/) {
             executable 'zip'
         }
     }
-    outputs.upToDateWhen { false }
+    outputs.doNotCacheIf { true }
 }
 //check.dependsOn integrationTest
 
