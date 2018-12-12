@@ -34,12 +34,16 @@ task cleanAll(type: Delete) {
     shouldRunAfter clean
 }
 
-task integrationTest(type: Test/*, shouldRunAfter: test*/) {
-    description = 'Runs integration tests.'
-    group = 'verification'
+task OtaTest(type: Test/*, shouldRunAfter: test*/) {
+    description = 'Runs Ota tests.'
+    //group = 'verification'
 
+    doLast {
         println 'Test...'
+        exec {
             executable 'zip'
+        }
+    }
 }
 //check.dependsOn integrationTest
 
@@ -51,7 +55,16 @@ task buildOta() {
         }
     }
 }
-build.finalizedBy buildOta
+//build.finalizedBy buildOta
+
+task buildOtaOss() {
+    doLast {
+        println 'Building the flashable OTA OSS zip with Gradle...'
+        exec {
+            executable 'ls'
+        }
+    }
+}
 
 task install(dependsOn: ':build') {
 }
