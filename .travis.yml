@@ -14,7 +14,7 @@ matrix:
       #script: gradle run test_me jacoco
     - env: TEST=3
       script: ./gradlew test
-      language: generic
+      #language: generic
   allow_failures:
     - language: generic
   fast_finish: true
