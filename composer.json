@@ -1,0 +1,14 @@
+{
+    "name": "ale5000/test",
+    "type": "project",
+    "license": "GPL-3.0-or-later",
+    "authors": [
+        {
+            "name": "ale5000",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=4.3.0"
+    }
+}
